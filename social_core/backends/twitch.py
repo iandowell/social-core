@@ -25,7 +25,7 @@ class TwitchOAuth2(BaseOAuth2):
 
     def user_data(self, access_token, *args, **kwargs):
         return self.get_json(
-            'https://api.twitch.tv/kraken/user/',
-            params={'oauth_token': access_token},
+            'https://id.twitch.tv',
+            params={'oauth_token': access_token, 'api_version': 5},
             headers={'Accept': 'application/vnd.twitchtv.v5+json'}
         )
